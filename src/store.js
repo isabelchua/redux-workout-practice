@@ -1,19 +1,23 @@
 import { createStore } from "redux";
+import { composeWithDevTools } from "redux-devtools-extension";
+import rootReducer from "./reducers/rootReducer";
 
-const store = createStore();
+const store = createStore(rootReducer, composeWithDevTools());
 
-const reducer = {
-	activities: [
-		{
-			id: 1,
-			name: "gym",
-			duration: "1 hour"
-		}
-	],
-	people: [
-		{
-			id: 1,
-			name: "John Doe"
-		}
-	]
-};
+export default store;
+
+// const reducer = {
+// 	activities: [
+// 		{
+// 			id: 1,
+// 			name: "gym",
+// 			duration: "1 hour"
+// 		}
+// 	],
+// 	people: [
+// 		{
+// 			id: 1,
+// 			name: "John Doe"
+// 		}
+// 	]
+// };
