@@ -8,7 +8,7 @@ const Workouts = () => {
 	const allActivities = useSelector(state => state.activities);
 	const [add, setAdd] = useState(false);
 	// console.log("state", state);
-
+	console.log(allActivities);
 	return (
 		<div className={"workouts-wrapper"}>
 			<h2>Workouts</h2>
