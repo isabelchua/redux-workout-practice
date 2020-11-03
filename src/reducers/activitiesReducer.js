@@ -1,3 +1,5 @@
+import uuid from "uuid/v4";
+
 const initialState = [
 	{
 		id: 1,
@@ -12,6 +14,22 @@ const initialState = [
 ];
 
 const activitiesReducer = (state = initialState, action) => {
+	const { type, payload } = action;
+
+	switch (type) {
+		case "CREATE_ACTIVITY":
+			return [
+				...state,
+				{
+					id: uuid(),
+					name: payload.name,
+					duration: payload.duration
+				}
+			];
+		default:
+			return state;
+	}
+
 	return state;
 };
 
