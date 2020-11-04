@@ -1,13 +1,26 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 
 const Activity = props => {
+	const dispatch = useDispatch();
+	const deleteActivity = () => {
+		dispatch({
+			type: "DELETE_ACTIVITY",
+			payload: {
+				id: props.id
+			}
+		});
+	};
+
 	return (
-		<div className={"activity-wrapper"}>
-			<p>
-				activity: {props.name}, Duration: {props.duration}{" "}
-			</p>
-			<button>Delete</button>
-		</div>
+		<tr>
+			<td>{props.name}</td>
+			<td>{props.duration}</td>
+
+			<td>
+				<button onClick={deleteActivity}>Delete</button>
+			</td>
+		</tr>
 	);
 };
 

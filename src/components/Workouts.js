@@ -14,17 +14,26 @@ const Workouts = () => {
 			<h2>Workouts</h2>
 			<button onClick={() => setAdd(!add)}>Add Activity</button>
 			{add && <AddActivity />}
-			{allActivities.map(activity => {
-				console.log(activity);
-				return (
-					<Activity
-						key={activity.id}
-						name={activity.name}
-						duration={activity.duration}
-						id={activity.id}
-					/>
-				);
-			})}
+			<table>
+				<tr>
+					<td>Activity</td>
+					<td>Duration</td>
+					<td>Delete</td>
+				</tr>
+				<>
+					{allActivities.map(activity => {
+						//console.log(activity);
+						return (
+							<Activity
+								key={activity.id}
+								name={activity.name}
+								duration={activity.duration}
+								id={activity.id}
+							/>
+						);
+					})}
+				</>
+			</table>
 		</div>
 	);
 };
